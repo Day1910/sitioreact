@@ -1,16 +1,16 @@
 {
   "files": {
-    "main.css": "/sitioreactgit/static/css/main.073c9b0a.css",
-    "main.js": "/sitioreactgit/static/js/main.60c3fc18.js",
-    "static/js/787.cc4e593a.chunk.js": "/sitioreactgit/static/js/787.cc4e593a.chunk.js",
-    "static/media/logo.svg": "/sitioreactgit/static/media/logo.6ce24c58023cc2f8fd88fe9d219db6c6.svg",
-    "index.html": "/sitioreactgit/index.html",
-    "main.073c9b0a.css.map": "/sitioreactgit/static/css/main.073c9b0a.css.map",
-    "main.60c3fc18.js.map": "/sitioreactgit/static/js/main.60c3fc18.js.map",
-    "787.cc4e593a.chunk.js.map": "/sitioreactgit/static/js/787.cc4e593a.chunk.js.map"
+    "main.css": "/sitioreact/static/css/main.073c9b0a.css",
+    "main.js": "/sitioreact/static/js/main.ee00b767.js",
+    "static/js/787.cc4e593a.chunk.js": "/sitioreact/static/js/787.cc4e593a.chunk.js",
+    "static/media/logo.svg": "/sitioreact/static/media/logo.6ce24c58023cc2f8fd88fe9d219db6c6.svg",
+    "index.html": "/sitioreact/index.html",
+    "main.073c9b0a.css.map": "/sitioreact/static/css/main.073c9b0a.css.map",
+    "main.ee00b767.js.map": "/sitioreact/static/js/main.ee00b767.js.map",
+    "787.cc4e593a.chunk.js.map": "/sitioreact/static/js/787.cc4e593a.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.073c9b0a.css",
-    "static/js/main.60c3fc18.js"
+    "static/js/main.ee00b767.js"
   ]
 }
