@@ -15,7 +15,7 @@ function App() {
           target="_blank"
           rel="noopener noreferrer"
         >
-          Learn React - Daytiana
+          Learn React - Day
         </a>
       </header>
     </div>
