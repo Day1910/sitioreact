@@ -1,16 +1,16 @@
 {
   "files": {
     "main.css": "/sitioreact/static/css/main.073c9b0a.css",
-    "main.js": "/sitioreact/static/js/main.ee00b767.js",
+    "main.js": "/sitioreact/static/js/main.b626ae3b.js",
     "static/js/787.cc4e593a.chunk.js": "/sitioreact/static/js/787.cc4e593a.chunk.js",
     "static/media/logo.svg": "/sitioreact/static/media/logo.6ce24c58023cc2f8fd88fe9d219db6c6.svg",
     "index.html": "/sitioreact/index.html",
     "main.073c9b0a.css.map": "/sitioreact/static/css/main.073c9b0a.css.map",
-    "main.ee00b767.js.map": "/sitioreact/static/js/main.ee00b767.js.map",
+    "main.b626ae3b.js.map": "/sitioreact/static/js/main.b626ae3b.js.map",
     "787.cc4e593a.chunk.js.map": "/sitioreact/static/js/787.cc4e593a.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.073c9b0a.css",
-    "static/js/main.ee00b767.js"
+    "static/js/main.b626ae3b.js"
   ]
 }
