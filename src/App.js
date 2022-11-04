@@ -1,23 +1,27 @@
-import logo from './logo.svg';
-import './App.css';
+import { useState } from "react";
+import AppForm from "./Componentes/AppForm";
+
 
 function App() {
+////////////////////////Definir lectura/////////////////////////
+const [idActual, setIdActual] = useState("");    ////PARA actuañizar y eliminar
+const [docsBD, setDocsBD] = useState([]);        ////PARA LECTURA A BD
+
+//////////////LECTURA A BD/////////////////////////////////
+const fnRead = () =>{
+  console.log("Lectura a BD");
+}
+
+//////////////ELIMINAR/////////////////////////////////
+const fnDelete = () =>{
+  console.log("Eliminar un registro");
+}
+
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React - Day
-        </a>
-      </header>
+    <div style={{background:"greenyellow", width:"350px"}}>
+      <h1> sitiocopia (App.js)</h1>
+      <AppForm {...{idActual, setIdActual, fnRead}}/>
     </div>
   );
 }
