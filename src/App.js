@@ -36,13 +36,13 @@ function App() {
     
     const [idActual, setIdActual] = useState("");
 
-    useEffect( () => {
+    /*useEffect( () => {
       fnRead();
-    }, [idActual]);
+    }, [idActual]); */
 
     //////////////ELIMINAR/////////////////////////////////
     const fnDelete = async (xId) =>{
-      if (window.corfirm("Confirme para eliminar")) {
+      if (window.confirm("Esta seguro que desea eliminar")) {
         await deleteDoc(doc(db, 'favoritos', xId));
         toast("Documento eliminado con éxito",{
           type:'error',
@@ -79,10 +79,12 @@ function App() {
                   <h4>N.{i} - {p.URL}</h4>
                   <div>
                     <i className="material-icons text-danger"
-                    onClick={() => fnDelete(p.id)}>Close</i>
+                    onClick={() => fnDelete(p.id)}>close</i>
+
                     ----
+
                     <i className="material-icons text-warning"
-                    onClick={() => setIdActual(p.id)}>Cretae</i>
+                    onClick={() => setIdActual(p.id)}>create</i>
                   </div>
                 </div> 
                 <div className="d-flex justify-content">
@@ -100,3 +102,4 @@ function App() {
 }
 
 export default App;
+

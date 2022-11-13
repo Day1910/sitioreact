@@ -1,4 +1,4 @@
-import {collection, doc, getDocs, addDoc, updateDoc} from "firebase/firestore";
+import {collection, doc, getDoc, addDoc, updateDoc} from "firebase/firestore";
 import React, { useEffect, useState } from "react";
 import { toast } from "react-toastify";
 import {db} from "./firebase";
@@ -17,7 +17,8 @@ const AppForm = (props) => {
     }
 
     const controlSubmit = async (e) => {
-        e.preventDefault();
+        try {
+          e.preventDefault();
 
         if(props.idActual === ""){
             if (validarForm) {
@@ -35,6 +36,9 @@ const AppForm = (props) => {
             props.setIdActual('');
         }
         setObjeto(camposRegistro);
+        } catch (error) {
+          console.error();
+        }
     };
 
     const validarForm = () => {
@@ -59,16 +63,15 @@ const AppForm = (props) => {
         } else {
           obtenerDatosPorId(props.idActual);
         }
-        props.fnRead();
     }, [props.idActual]);
 
     const obtenerDatosPorId = async(xId) => {
         const objPorId = doc(db, "favoritos", xId);
-        const docPorId = await getDocs(objPorId);
+        const docPorId = await getDoc(objPorId);
         if (docPorId.exists()) {
           setObjeto(docPorId.data());
         } else {
-          console.log("No hay doc...");
+          console.log("No hay datos en BD...");
         }
     };
 

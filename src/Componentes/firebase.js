@@ -3,10 +3,10 @@ import { initializeApp } from 'firebase/app';
 import { getFirestore } from 'firebase/firestore';
 
 const firebaseConfig = {
-    apiKey: 'AIzaSyDCuUNOPxsGY1hfNDzyicb-Lh9EHr5oAe0',
-    authDomain: 'bd-react2.firebaseapp.com',
-    projectId: 'bd-react2',
-    storageBucket: "bd-react2.appspot.com",
+    apiKey: 'AIzaSyBAUnfCY_MV8tavvpid4qmCROZKjxnSKm4',
+    authDomain: 'fb-bdreact-657de.firebaseapp.com',
+    projectId: 'fb-bdreact-657de',
+    storageBucket: "fb-bdreact-657de.appspot.com",
 };
 
 const app = initializeApp(firebaseConfig);
