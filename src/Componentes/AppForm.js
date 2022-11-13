@@ -78,12 +78,12 @@ const AppForm = (props) => {
       return (
         <div >
             <form className="card card-body"onSubmit={controlSubmit}>
-              <button>
+              <button className="btn btn-primary btn-block">
                  Formulario (AppForm.js)
               </button>
               <div className="form-group input-group">
                 <div className="input-group-text bd-light">
-                  <i className="material-icons">Insert_link</i>
+                  <i className="material-icons">group_add</i>
                 </div>
                   <input type="text" className="form-control" name="URL" placeholder="URL.." 
                   onChange={controlarEstadoCambio} value={objeto.URL}/> 
@@ -91,7 +91,7 @@ const AppForm = (props) => {
               
               <div className="form-group input-group clearfix">
                 <div className="input-group-text bd-light">
-                  <i className="material-icons"> Start_half</i>
+                  <i className="material-icons"> star_half</i>
                 </div>
                   <input type="text" className="form-control" name="nombre" placeholder="Nombre.." 
                   onChange={controlarEstadoCambio} value={objeto.nombre}/> 
@@ -99,7 +99,7 @@ const AppForm = (props) => {
 
               <div className="form-group input-group ">
                 <div className="input-group-text bd-light">
-                  <i className="material-icons"> Start_half</i>
+                  <i className="material-icons"> insert_link</i>
                 </div>
                   <input type="text" className="form-control" name="descripcion" placeholder="Descripcion.." 
                   onChange={controlarEstadoCambio} value={objeto.descripcion}/> 
