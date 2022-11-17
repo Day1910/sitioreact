@@ -1,7 +1,7 @@
 import {collection, getDocs, query, doc, deleteDoc, where,} from "firebase/firestore";
 
 import React, { useEffect, useState } from "react";
-import firebase, { db } from "./Componentes/firebase";
+import  { db } from "./Componentes/firebase";
 import AppForm from "./Componentes/AppForm";
 
 
@@ -42,23 +42,46 @@ function App() {
 
 
       return (
-        <div style={{background:"greenyellow", width:"350px", padding:"10px"}}>
-          <h1> sitiocopia2 (App.js)</h1>
-          <AppForm {...{idActual, setIdActual, fnRead}}/>
-         {
-          docsBD.map( (p) =>
-            <p key={p.xId}>
-                N.{i} - {p.URL} ---
-                <span onClick={() => fnDelete(p.xId)}>x</span>
-                ---
-                <span onClick={() => setIdActual(p.xId)}>A</span>
-                ---
-            </p>
-          )
-         }
-         
+        <div className="container text-center">
+          <div className="card bs-secondary p-3 mt-3">
+
+          <div className="col-md-12 p-2">
+            <div className="card mb-1">
+              <h1> sitiocopia2 (App.js)</h1>
+          </div>
         </div>
-      );
+        
+        <div className="col-md-12 p-2">
+          <AppForm {...{idActual, setIdActual, fnRead}}/>
+        </div>
+          
+        <div className="col-md-12 p-2"> 
+          {
+            docsBD.map( (p) =>
+            <div className="card mb-1" key={p.id}>
+              <div className="card-body"> 
+                <div className="d-flex justify-content-between"> 
+                  <h4>N.{i} - {p.URL}</h4>
+                  <div>
+                    <i className="material-icons text-danger"
+                    onClick={() => fnDelete(p.id)}>Close</i>
+                    ----
+                    <i className="material-icons text-warning"
+                    onClick={() => setIdActual(p.id)}>Cretae</i>
+                  </div>
+                </div> 
+                <div className="d-flex justify-content">
+                  <span>Nombre: {p.nombre}</span>...
+                  <a href="#"> Descripcion: {p.descripcion}</a>
+                </div> 
+              </div>
+            </div>
+            )
+          }
+        </div> 
+      </div>
+    </div>
+  );
 }
 
 export default App;

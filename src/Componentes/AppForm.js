@@ -1,7 +1,6 @@
 import {collection, doc, getDocs, addDoc, updateDoc} from "firebase/firestore";
-
 import React, { useEffect, useState } from "react";
-import firebase,{db} from "./firebase";
+import {db} from "./firebase";
 
 
 
@@ -11,8 +10,8 @@ const AppForm = (props) => {
     const [objeto, setObjeto] = useState(camposRegistro);
 
     const controlarEstadoCambio = (e) => {
-        const{URL, value} = e.target;
-        setObjeto({...objeto, [URL]:value })
+        const{name, value} = e.target;
+        setObjeto({...objeto, [name]:value })
 
     }
 
@@ -23,24 +22,30 @@ const AppForm = (props) => {
             if (validarForm) {
               addDoc(collection(db, 'favoritos'), objeto);
               console.log("Se guardo...");
-              props.fnRead();
             }else{
               console.log("No se guardo...");
             }
         }else{
             await updateDoc(doc(collection(db, "favoritos"), props.idActual),objeto);
             console.log("Se actualizo...");
-            props.fnRead();
             props.setIdActual('');
         }
         setObjeto(camposRegistro);
-    }
+    };
 
     const validarForm = () => {
         if (objeto.URL==="" || /^\s+$/.test(objeto.URL)) {
             alert("Escriba URL...");
             return false;
         }
+        if (objeto.nombre==="" || /^\s+$/.test(objeto.nombre)) {
+          alert("Escriba nombre...");
+          return false;
+      }
+      if (objeto.descripcion==="" || /^\s+$/.test(objeto.descripcion)) {
+        alert("Escriba descripcion...");
+        return false;
+      }
         return true;
     };
 
@@ -64,17 +69,17 @@ const AppForm = (props) => {
     };
 
       return (
-        <div style ={{background:"orange", padding:"10px", textAlign:"center"}}>
+        <div style ={{background:"cyan", padding:"10px", textAlign:"center"}}>
             <h1>AppForm.js </h1>
             <form onSubmit={controlSubmit}>
               <input type="text" name="URL" placeholder="URL.." onChange={controlarEstadoCambio}
-              value={objeto.nombre}/> <br/>
+              value={objeto.URL}/> <br/>
 
               <input type="text" name="nombre" placeholder="Nombre.." onChange={controlarEstadoCambio}
-              value={objeto.edad}/> <br/>
+              value={objeto.nombre}/> <br/>
 
               <input type="text" name="descripcion" placeholder="Descripcion.." onChange={controlarEstadoCambio}
-              value={objeto.genero}/> <br/>
+              value={objeto.descripcion}/> <br/>
 
               <button>
                 {props.idActual === ""? "Guardar" : "Actualizar"}
