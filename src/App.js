@@ -10,7 +10,7 @@ function App() {
     ////////////////////////Definir lectura/////////////////////////
     const [idActual, setIdActual] = useState("");    ////PARA actuañizar y eliminar
     const [docsBD, setDocsBD] = useState([]);        ////PARA LECTURA A BD
-    const [orden, setOrden] = useState(0); 
+    
     const i = 1; 
 
     //////////////LECTURA A BD/////////////////////////////////
