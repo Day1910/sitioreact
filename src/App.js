@@ -1,30 +1,40 @@
-import {collection, getDocs, query, doc, deleteDoc, where,} from "firebase/firestore";
+import {collection, getDocs, query, doc, deleteDoc, where, onSnapshot,} from "firebase/firestore";
 
 import React, { useEffect, useState } from "react";
 import  { db } from "./Componentes/firebase";
 import AppForm from "./Componentes/AppForm";
+import {toast} from 'react-toastify';
+import {ToastContainer} from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 
 
 function App() {
     ////////////////////////Definir lectura/////////////////////////
-    const [idActual, setIdActual] = useState("");    ////PARA actuañizar y eliminar
+       ////PARA actuañizar y eliminar
     const [docsBD, setDocsBD] = useState([]);        ////PARA LECTURA A BD
     const [orden, setOden] = useState(0);
     const i = 1; 
 
     //////////////LECTURA A BD/////////////////////////////////
     const fnRead = async () =>{
-      const tblPersona = query(collection(db, "favoritos"), where ("URL","!=", ""));
-      const xDatosBD = await getDocs(tblPersona);
-      const xDoc = [];
-
-      xDatosBD.forEach((doc) => {
-        xDoc.push({id: doc.id, ...doc.data()});
+      try {
+        const xColeccionConQuery = query(collection(db, "favoritos"));
+        //const xColeccionConQuery = query(collection(db, "favoritos"), where ("URL","!=", ""));
+        const unsubscribe = onSnapshot(xColeccionConQuery, (xDatosBD) =>{
+        const xDoc = [];
+        xDatosBD.forEach((doc) => {
+          xDoc.push({id: doc.id, ...doc.data()});
+        });
+        setDocsBD(xDoc);
       });
-      setDocsBD(xDoc);
-      //console.log("Lectura a BD");
+      } catch (error) {
+        
+      }
     }
+    fnRead();
+    
+    const [idActual, setIdActual] = useState("");
 
     useEffect( () => {
       fnRead();
@@ -34,9 +44,12 @@ function App() {
     const fnDelete = async (xId) =>{
       if (window.corfirm("Confirme para eliminar")) {
         await deleteDoc(doc(db, 'favoritos', xId));
-        console.log("Se elimino ...."+ xId);
+        toast("Documento eliminado con éxito",{
+          type:'error',
+          autoClose: 2000
+        })
       }
-      fnRead();
+      //fnRead();
 
     }
 
@@ -44,6 +57,8 @@ function App() {
       return (
         <div className="container text-center">
           <div className="card bs-secondary p-3 mt-3">
+
+            <ToastContainer />
 
           <div className="col-md-12 p-2">
             <div className="card mb-1">
