@@ -60,7 +60,7 @@ function App() {
 
             <ToastContainer />
 
-          <div className="col-md-12 p-2">
+          <div className="card border-danger mb-3">
             <div className="card mb-1">
               <h1> sitiocopia2 (App.js)</h1>
           </div>

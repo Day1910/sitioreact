@@ -78,7 +78,7 @@ const AppForm = (props) => {
       return (
         <div >
             <form className="card card-body"onSubmit={controlSubmit}>
-              <button className="btn btn-primary btn-block">
+              <button className="btn btn-danger">
                  Formulario (AppForm.js)
               </button>
               <div className="form-group input-group">
@@ -104,8 +104,8 @@ const AppForm = (props) => {
                   <input type="text" className="form-control" name="descripcion" placeholder="Descripcion.." 
                   onChange={controlarEstadoCambio} value={objeto.descripcion}/> 
               </div>
-
-              <button className="btn btn-primary btn-block">
+              
+              <button className="btn btn-danger">
                 {props.idActual === ""? "Guardar" : "Actualizar"}
               </button>
 
